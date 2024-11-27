@@ -54,4 +54,17 @@ public class OFImage extends BufferedImage
         int pixel = getRGB(x, y);
         return new Color(pixel);
     }
+    
+    /**
+     * Get a subimage from this image (delegating to BufferedImage's getSubimage method).
+     * @param x The x coordinate of the top left corner of the subimage.
+     * @param y The y coordinate of the top left corner of the subimage.
+     * @param width The width of the subimage.
+     * @param height The height of the subimage.
+     * @return A new OFImage representing the subimage.
+     */
+    public OFImage getSubimage(int x, int y, int width, int height) {
+        BufferedImage subimage = super.getSubimage(x, y, width, height);
+        return new OFImage(subimage);
+    }
 }
